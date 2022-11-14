@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Personality Quiz</title>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="style.css">
+    </head>
+    
+    <body>
+        <div id="container">
+            <h2 id="title">What 5 Seconds of Summer Era Are You?</h2>
+            <h2 id="questions">Question 1: Pick a color palette</h2>
+            <div id="buttons">
+            <button id="button1" type="image"><img id="img1" src="pictures/black.png" height="250px" width="250px" alt="black"></button>
+            <button id="button2" type="image"><img id="img2" src="pictures/pink.png" height="250px" width="250px" alt="pink"></button>
+            <button id="button3" type="image"><img id="img3" src="pictures/blue.png" height="250px" width="250px" alt="blue"></button>
+            <button id="button4" type="image"><img id="img4" src="pictures/glitter.png" height="250px" width="250px" alt="glitter"></button>
+            </div>
+        </div>
+        
+        <script src="https://cdn.jsdelivr.net/npm/p5@1.5.0/lib/p5.js"></script>
+        
+        <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+        
+        
+        <script>
+            
+        let number = 0;
+            
+            $("#img1").on("click", function(){
+                number += 1
+            });
+            $("#img2").on("click", function(){
+                number += 2
+            });
+            $("#img3").on("click", function(){
+                number += 3
+            });
+            $("#img4").on("click", function(){
+                number += 4
+            });
+       
+            
+        let question2 = function(){
+                $("#questions").text("Question 2: Pick a clothing item");
+                $("#img1").attr("src", "pictures/jeans.png");
+                $("#img2").attr("src", "pictures/leatherjacket.png");
+                $("#img3").attr("src", "pictures/checkeredpants.png");
+                $("#img4").attr("src", "pictures/suit.png");
+                $("button").on("click", question3);
+            }
+        let question3 = function(){
+                $("#questions").text("Question 3: Pick an accessory");
+                $("#img1").attr("src", "pictures/bracelets.png");
+                $("#img2").attr("src", "pictures/boots.png");
+                $("#img3").attr("src", "pictures/rings.png");
+                $("#img4").attr("src", "pictures/truckerhat.png");
+                $("button").on("click", question4);
+            }
+        
+        let question4 = function(){
+            $("#questions").text("Question 4: Pick a random object");
+            $("#img1").attr("src", "pictures/ketchup.png");
+            $("#img2").attr("src", "pictures/tree.png");
+            $("#img3").attr("src", "pictures/earbuds.png");
+            $("#img4").attr("src", "pictures/blender.png");
+            $("button").on("click", question5);
+        }
+        
+        let question5 = function(){
+            $("#questions").text("Question 5: Pick an album cover");
+            $("#img1").attr("src", "pictures/selftitled.png");
+            $("#img2").attr("src", "pictures/youngblood.png");
+            $("#img3").attr("src", "pictures/calm.png");
+            $("#img4").attr("src", "pictures/5sos5.png");
+            $("button").on("click", question6);
+        }
+        
+        let question6 = function(){
+            $("#questions").text("Question 6: Pick a social media");
+            $("#img1").attr("src", "pictures/tumblr.png");
+            $("#img2").attr("src", "pictures/youtube.png");
+            $("#img3").attr("src", "pictures/twitter.png");
+            $("#img4").attr("src", "pictures/tiktok.png");
+            $("button").on("click", question7);
+        }
+        
+        let question7 = function(){
+            $("#questions").text("Question 7: Pick a lyric");
+            $("#img1").attr("src", "pictures/neverbe.png");
+            $("#img2").attr("src", "pictures/ghostofyou.png");
+            $("#img3").attr("src", "pictures/reddesert.png");
+            $("#img4").attr("src", "pictures/blenderlyric.png");
+            $("button").on("click", question8);
+        }
+        
+        let question8 = function(){
+            $("#questions").text("Question 8: Pick a lockscreen");
+            $("#img1").attr("src", "pictures/1.png");
+            $("#img2").attr("src", "pictures/2.png");
+            $("#img3").attr("src", "pictures/3.png");
+            $("#img4").attr("src", "pictures/4.png");
+            $("button").on("click", question9);
+        }
+        
+        let question9 = function(){
+            $("#questions").text("Question 9: Pick a meme");
+            $("#img1").attr("src", "pictures/tadpoles.gif");
+            $("#img2").attr("src", "pictures/alrightlosangeles.gif");
+            $("#img3").attr("src", "pictures/run.gif");
+            $("#img4").attr("src", "pictures/summerbros.png");
+            $("button").on("click", question10);
+        }
+        
+        let question10 = function(){
+            $("#questions").text("Question 10: Pick a Member");
+            $("#img1").attr("src", "pictures/michael.jpg");
+            $("#img2").attr("src", "pictures/calum.png");
+            $("#img3").attr("src", "pictures/ashton.png");
+            $("#img4").attr("src", "pictures/luke.png");
+            $("button").on("click", results);
+        }
+        
+        let results = function(){
+                $("#title").text("Results");
+                $("#questions").empty();
+                $("#buttons").empty();
+                
+            if (number <= 10){
+                    $("#questions").append("Self-Titled Era");
+                    $("<img>")
+                        .attr("src", "pictures/selftitled.png")
+                        .width("250")
+                        .appendTo("#buttons");
+                    $("<p>")
+                        .addClass("results")
+                        .appendTo("#buttons")
+                        .append("Wow you got the Self-Titled Era. That means one of two things. You are either actually a 12-year-old OR you are someone who still flexes on seeing 5SOS open for One Direction. How does it feel to be in your 20s still going through your emo/punk rock phase? Either way, congratulations on being a long term fan or studying up on your 5SOS history. You have my respect and you've earned your sport in this fandom...but maybe it's time to throw out the red flannel.");
+                } else if (number <= 20){
+                    $("#questions").append("Youngblood Era");
+                    $("<img>")
+                        .attr("src", "pictures/youngblood.png")
+                        .width("250")
+                        .appendTo("#buttons");
+                    $("<p>")
+                        .addClass("results")
+                        .appendTo("#buttons")
+                        .append("OOoOoh you are the Youngblood era. You're probably a good vibe. Lowkey this is still one of my favorite 5SOS eras. This era had the best music, best tour, and best memes. You can for sure appreciate a song that will make you cry *cough*ghost of you*cough* Your sense of style is a little bit edgy bit still classic. You appreciate a nice leather jacket. Don't stop being you, your personality is top tier.")
+                } else if (number <= 30){
+                    $("#questions").append("CALM Era");
+                    $("<img>")
+                        .attr("src", "pictures/calm.png")
+                        .width("250")
+                        .appendTo("#buttons");
+                    $("<p>")
+                        .addClass("results")
+                        .appendTo("#buttons")
+                        .append("Ah the CALM era. Not gonna lie, this era just reminds me of the March 2020 covid lockdown. So you're probably an introvert. You reaaaally love music and you definitely use it to cope with life. Relatable. Comfort is key when it comes to your sense of style, just for convenience, but you really know how to pull together the best fit when you want to. You're kind of shy and quiet but once someone gets to know you, you're a riot.");
+                } else if (number <= 40){
+                    $("#questions").append("5SOS5 Era");
+                    $("<img>")
+                        .attr("src", "pictures/5sos5.png")
+                        .width("250")
+                        .appendTo("#buttons");
+                    $("<p>")
+                        .addClass("results")
+                        .appendTo("#buttons")
+                        .append("You are the 5SOS5 Era. New, Fun, Funky, and Fresh are just a few words that can describe your vibe. Wow you probably have a very classic and clean style. You're either brand new to the fandom or have been here from the beginning, there is no in between. My only question for you is, Are you still emotionally recovering from the 10 year anniversary video too? This new album slaps so if you got this era it is because you slap too. Congrats on being cool and amazing.");
+                }
+            }
+        
+            $("button").on("click", question2);
+
+        
+
+            
+        </script>
+    </body>
+</html>
